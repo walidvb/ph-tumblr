@@ -80,12 +80,13 @@ header{
 	margin-bottom: 50px;
 }
 article{
+	margin-bottom: 40px;
 	.permalink-page & .post-title{
 		color: #2C2C2C;
 		margin-top: 5px;
 		margin-bottom: 60px;
 	}
-	a, a:hover{
+	a h2, a:hover h2{
 		color: $theme-color;
 	}
 	p:not(.read_more_container) {
@@ -101,12 +102,23 @@ article{
 			}
 		}
 	}
-	time{
+	.post-meta{
+		$meta-color: lighten(black, 20%);
 		text-transform: uppercase;
 		font-weight: 300;
-		color: lighten(black, 10%);
+		color: $meta-color;
 		font-size: 0.82em;
+
+		.tags{
+			display: inline-block;
+			float: right;
+			text-transform: uppercase;
+			.tag{
+				color: $meta-color;
+			}
+		}
 	}
+
 }
 
 .next-page{

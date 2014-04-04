@@ -73,11 +73,9 @@
 		<meta name="image:LogoLight" content="{LogoLight}"/>
 		<meta name="text:Google Analytics ID" content="" />
 		<style type="text/css">
-			@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic);body{font-family:Lato, sans-serif;font-size:16px}body p{font-weight:300}img,iframe{max-width:100% !important}header{position:relative;height:60px}.index-page header{background-size:cover;background-position:center;background-repeat:no-repeat;background-image:url({HeaderImage})}.permalink-page header{margin-bottom:60px}@media (min-width: 767px){.index-page header{height:400px;margin-bottom:60px}.permalink-page header{margin-bottom:135px}}header #logo{padding:15px;width:200px;display:inline-block}header #blog-title{color:white;font-size:2em;letter-spacing:0.03em;text-align:center}@media (min-width: 767px){header #blog-title{line-height:310px}}@media (min-width: 767px){#description{margin-bottom:65px}}#description .welcome{font-weight:bold}.archives{font-weight:300;border-top:solid 1px #99d3c8;padding-top:5px;text-transform:uppercase}@media (min-width: 767px){.archives{margin-bottom:45px}}.post-list{margin-bottom:50px}.permalink-page article .post-title{color:#2C2C2C;margin-top:5px;margin-bottom:60px}article a,article a:hover{color:#99d3c8}article p:not(.read_more_container) img{display:block;margin:auto}article p:not(.read_more_container) a,article p:not(.read_more_container) a:hover{color:black;text-decoration:underline}article p:not(.read_more_container) a:hover,article p:not(.read_more_container) a:hover:hover{text-decoration:none}article time{text-transform:uppercase;font-weight:300;color:#1a1a1a;font-size:0.82em}.next-page{background:#99d3c8;color:white;width:100%;border-radius:0}footer{margin-top:30px;padding-top:20px;padding-bottom:40px;padding-left:20px;padding-right:20px;background-color:#08233e;color:white}footer ul{padding:0;list-style-type:none}footer #footer_links{float:left;margin-bottom:5px}footer #footer_links h5{font-size:1.1em;margin-bottom:12px}footer #footer_links li{display:inline-block;padding-left:10px;padding-right:40px}footer #footer_links li li{font-weight:normal;font-size:1em;display:block;padding:0;line-height:2em}footer #footer_links li li a{color:white;text-decoration:none}footer #footer_links li li a:hover{text-decoration:underline}footer .next-page{background-color:#99d3c8;text-transform:uppercase;color:white}footer #footer_etc{margin-left:10px;margin-right:10px;clear:left}@media only screen and (min-width: 640px){footer #footer_etc{float:right}}@media only screen and (max-width: 640px){footer #footer_etc{float:left}}footer #footer_etc .social{margin-top:5px;margin-left:0px;font-size:large}footer #footer_etc .social a{margin-right:10px;color:white}
-
-
-
+			@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic);body{font-family:Lato, sans-serif;font-size:16px}body p{font-weight:300}img,iframe{max-width:100% !important}header{position:relative;height:150px;margin-bottom:20px}.index-page header{background-size:cover;background-position:center;background-repeat:no-repeat;background-image:url({HeaderImage})}.permalink-page header{margin-bottom:60px}@media (min-width: 767px){.index-page header{height:400px;margin-bottom:60px}.permalink-page header{margin-bottom:135px}}header .title-wrapper{height:100%}header .title-wrapper:before{content:'';height:50%;display:inline-block}header .title-wrapper #blog-title{color:white;font-size:2em;letter-spacing:0.03em;margin-top:0;text-align:center}header #logo{padding:15px;width:200px;display:inline-block;position:absolute;top:0;left:0}@media (min-width: 767px){#description{margin-bottom:65px}}#description .welcome{font-weight:bold}.archives{font-weight:300;border-top:solid 1px #99d3c8;padding-top:5px;text-transform:uppercase}@media (min-width: 767px){.archives{margin-bottom:45px}}.post-list{margin-bottom:50px}article{margin-bottom:40px}.permalink-page article .post-title{color:#2C2C2C;margin-top:5px;margin-bottom:60px}article a h2,article a:hover h2{color:#99d3c8}article p:not(.read_more_container) img{display:block;margin:auto}article p:not(.read_more_container) a,article p:not(.read_more_container) a:hover{color:black;text-decoration:underline}article p:not(.read_more_container) a:hover,article p:not(.read_more_container) a:hover:hover{text-decoration:none}article .post-meta{text-transform:uppercase;font-weight:300;color:#333;font-size:0.82em}article .post-meta .tags{display:inline-block;float:right;text-transform:uppercase}article .post-meta .tags .tag{color:#333}.next-page{background:#99d3c8;color:white;width:100%;border-radius:0}footer{margin-top:30px;padding-top:20px;padding-bottom:40px;padding-left:20px;padding-right:20px;background-color:#08233e;color:white}footer ul{padding:0;list-style-type:none}footer #footer_links{float:left;margin-bottom:5px}footer #footer_links h5{font-size:1.1em;margin-bottom:12px}footer #footer_links li{display:inline-block;padding-left:10px;padding-right:40px}footer #footer_links li li{font-weight:normal;font-size:1em;display:block;padding:0;line-height:2em}footer #footer_links li li a{color:white;text-decoration:none}footer #footer_links li li a:hover{text-decoration:underline}footer .next-page{background-color:#99d3c8;text-transform:uppercase;color:white}footer #footer_etc{margin-left:10px;margin-right:10px;clear:left}@media only screen and (min-width: 640px){footer #footer_etc{float:right}}@media only screen and (max-width: 640px){footer #footer_etc{float:left}}footer #footer_etc .social{margin-top:5px;margin-left:0px;font-size:large}footer #footer_etc .social a{margin-right:10px;color:white}
 		</style>
+		{CustomCSS}
 		<!-- /MYHEAD -->
 	</head>
 
@@ -87,7 +85,9 @@
 				<a id="logo" href="http://thepigeonhole.com">
 					<img  src="{image:LogoLight}"></img>
 				</a>
-				<h1 id="blog-title">{Title}</h1>
+				<div class="title-wrapper">
+					<h1 id="blog-title">{Title}</h1>
+				</div>
 			{/block:IndexPage} 
 			
 			{block:PermalinkPage}
@@ -124,9 +124,20 @@
 							  	{/block:Title}
 								{/block:IndexPage}
 								{block:PermalinkPage}
-									{block:Date} 
+									<div class="post-meta">
+										{block:Date}	
 										<time class="post-date timeago" datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}" data-time="{DayOfMonthWithZero} {Month} {Year}">{DayOfMonthWithZero} {Month}</time>
-									{/block:Date}
+										{/block:Date}
+										{block:HasTags} 
+											<div class="tags">
+												{block:Tags} 
+													<a href="{TagURL}" class="tag">
+														#{Tag}
+													</a>
+												{/block:Tags}
+											</div>
+										{/block:HasTags}
+									</div>
 									<h1 class="post-title">{Title}</h1>
 								{/block:PermalinkPage}
 				<!-- Post start -->
@@ -203,9 +214,20 @@
 								  </div>
 							  {/block:Audio}
 							  {block:IndexPage}
-									{block:Date} 
+									<div class="post-meta">
+										{block:Date}	
 										<time class="post-date timeago" datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}" data-time="{DayOfMonthWithZero} {Month} {Year}">{DayOfMonthWithZero} {Month}</time>
-									{/block:Date}
+										{/block:Date}
+										{block:HasTags} 
+											<div class="tags">
+												{block:Tags} 
+													<a href="{TagURL}" class="tag">
+														#{Tag}
+													</a>
+												{/block:Tags}
+											</div>
+										{/block:HasTags}
+									</div>
 								{/block:IndexPage}
 				<!-- Post end -->
 							</article>
