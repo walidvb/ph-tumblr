@@ -2,301 +2,277 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
-<head>
-	<meta name='text:Disqus Shortname' content='' />
+	<head>
+		<!-- MYHEAD -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		{block:Description}
+			<meta name="description" content="{MetaDescription}" />
+		{/block:Description}
+		<title>{Title} {block:PostTitle} | {PostTitle} {/block:PostTitle}</title>
+
+		<link rel="shortcut icon" href="{Favicon}">
+		<link rel="alternate" type="application/rss+xml" href="{RSS}">
+
+		<meta name="viewport"  content="width=660"/>
+		<link rel="apple-touch-icon" href="{PortraitURL-128}"></link>
+
+		
 
 
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	{block:Description}<meta name="description" content="{MetaDescription}" />{/block:Description}
-	<title>{Title} {block:PostTitle} {PostTitle} {/block:PostTitle}</title>
+		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
+		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-timeago/1.4.0/jquery.timeago.min.js"></script>
+		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-infinitescroll/2.0b2.120519/jquery.infinitescroll.min.js"></script>
+		<link rel="stylesheet" href="ph/style.css" />
+		<script type="text/javascript">
+		function days_since( datetime )
+		{
+			var datetime = typeof datetime !== 'undefined' ? datetime : "2014-01-01 01:02:03.123456";
 
-	<link rel="shortcut icon" href="{Favicon}">
-	<link rel="alternate" type="application/rss+xml" href="{RSS}">
+			var datetime = new Date(datetime).getTime();
+			var now = new Date().getTime();
 
-	<meta name="viewport"  content="width=660"/>
-	<link rel="apple-touch-icon" href="{PortraitURL-128}"></link>
+			if( isNaN(datetime) )
+			{
+			    return "";
+			}
 
-	<meta name="text:Google Analytics ID" content="" />
-	<meta name="text:Disqus Shortname" content="" />
+			if (datetime < now) {
+			    var milisec_diff = now - datetime;
+			}else{
+			    var milisec_diff = datetime - now;
+			}
+			var days = Math.floor(milisec_diff / 1000 / 60 / (60 * 24));
+			return days
+		}
+		$(document).ready(function(){
+			var dates = $('time');
 
-	<link rel="stylesheet" href="http://static.tumblr.com/anfpypi/0Iim2p5oa/feather.css" />
-	<link rel="stylesheet" href="http://static.tumblr.com/anfpypi/0Iim2p5oa/feather.css" />
-	<!-- DEFAULT COLORS -->
-	<meta name="color:Background" content="#fff"/>
-	<meta name="color:Text" content="#919191"/>
-	<meta name="color:Links" content="#6DC0A9"/>
-	<meta name="color:Links Hover" content="#4A8D75"/>
-	<meta name="color:Heading" content="#000"/>
-	<meta name="color:Heading Hover" content="#000"/>
-	<meta name="color:Description" content="#919191"/>
-	<meta name="color:Permalink" content="#3F3F3F"/>
-	<meta name="color:Permalink Hover" content="#000000"/>
-	<meta name="color:Text Alt" content="#919191"/>
+			dates.each(function(){
+				var $this = $(this);
+				var date = $this.attr('data-time');
+				var diff = days_since(date);
+				console.log('days_since', diff)
+				if(diff < 15)
+				{
+					$this.timeago();
+				}
+			});
+			var $tumblelog = $('.post-list');
+	    $tumblelog.infinitescroll({
+	        navSelector: ".pagination",
+	        nextSelector: ".next-page",
+	        itemSelector: "article",
+	    });
+
+		})
+		</script>
+		<meta name="image:Header" content="{HeaderImage}"/>
+		<meta name="image:LogoDark" content="{LogoDark}"/>
+		<meta name="image:LogoLight" content="{LogoLight}"/>
+		<meta name="text:Google Analytics ID" content="" />
+		<style type="text/css">
+			@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic);body{font-family:Lato, sans-serif;font-size:16px}body p{font-weight:300}img,iframe{max-width:100% !important}header{position:relative;height:60px}.index-page header{background-size:cover;background-position:center;background-repeat:no-repeat;background-image:url({HeaderImage})}.permalink-page header{margin-bottom:60px}@media (min-width: 767px){.index-page header{height:400px;margin-bottom:60px}.permalink-page header{margin-bottom:135px}}header #logo{padding:15px;width:200px;display:inline-block}header #blog-title{color:white;font-size:2em;letter-spacing:0.03em;text-align:center}@media (min-width: 767px){header #blog-title{line-height:310px}}@media (min-width: 767px){#description{margin-bottom:65px}}#description .welcome{font-weight:bold}.archives{font-weight:300;border-top:solid 1px #99d3c8;padding-top:5px;text-transform:uppercase}@media (min-width: 767px){.archives{margin-bottom:45px}}.post-list{margin-bottom:50px}.permalink-page article .post-title{color:#2C2C2C;margin-top:5px;margin-bottom:60px}article a,article a:hover{color:#99d3c8}article p:not(.read_more_container) img{display:block;margin:auto}article p:not(.read_more_container) a,article p:not(.read_more_container) a:hover{color:black;text-decoration:underline}article p:not(.read_more_container) a:hover,article p:not(.read_more_container) a:hover:hover{text-decoration:none}article time{text-transform:uppercase;font-weight:300;color:#1a1a1a;font-size:0.82em}.next-page{background:#99d3c8;color:white;width:100%;border-radius:0}footer{margin-top:30px;padding-top:20px;padding-bottom:40px;padding-left:20px;padding-right:20px;background-color:#08233e;color:white}footer ul{padding:0;list-style-type:none}footer #footer_links{float:left;margin-bottom:5px}footer #footer_links h5{font-size:1.1em;margin-bottom:12px}footer #footer_links li{display:inline-block;padding-left:10px;padding-right:40px}footer #footer_links li li{font-weight:normal;font-size:1em;display:block;padding:0;line-height:2em}footer #footer_links li li a{color:white;text-decoration:none}footer #footer_links li li a:hover{text-decoration:underline}footer .next-page{background-color:#99d3c8;text-transform:uppercase;color:white}footer #footer_etc{margin-left:10px;margin-right:10px;clear:left}@media only screen and (min-width: 640px){footer #footer_etc{float:right}}@media only screen and (max-width: 640px){footer #footer_etc{float:left}}footer #footer_etc .social{margin-top:5px;margin-left:0px;font-size:large}footer #footer_etc .social a{margin-right:10px;color:white}
 
 
-	<style type="text/css" media="screen">
 
-		{CustomCSS}
-
-		body {
-			background: {color:Background};
-			color: {color:Text}; }
-			
-			#footer .attribution a, #footer .attribution a:link, #footer .attribution a:visited, #header #description a, #header #description a:link, #header #description a:visited, a { color: {color:Links}; }
-			
-			a:hover { color: {color:Links Hover}; }
-
-			#header h1 a { color: {color:Heading}; }
-			
-			#header h1 a:hover { color: {color:Heading Hover}; }
-
-			#description { color: {color:Description}; }
-			
-			.permalink a { color: {color:Permalink}; }		
-
-			.permalink a:hover { color: {color:Permalink Hover}; }
-
-			#footer, .quote p, .photo p, .video p, .audio p, #content .conversation, .text blockquote { color: {color:Text Alt}; }
-
-			#disqus_thread { width: 500px; padding: 0 0 75px 0; }
 		</style>
-
+		<!-- /MYHEAD -->
 	</head>
 
-	<body>
-
-
-
-		<div id="header">
-			<h1><a href="/">{Title}</a></h1>
+	<body class="{block:IndexPage}index-page{/block:IndexPage} {block:PermalinkPage}permalink-page post-page{/block:PermalinkPage}">
+		<header style="">
+			{block:IndexPage} 
+				<a id="logo" href="http://thepigeonhole.com">
+					<img  src="{image:LogoLight}"></img>
+				</a>
+				<h1 id="blog-title">{Title}</h1>
+			{/block:IndexPage} 
 			
-			<p id="description">
-				{block:HasPages}
-				{block:Pages}<a href="{URL}">{Label}</a> &nbsp;&nbsp;{/block:Pages}
-				{/block:HasPages}
+			{block:PermalinkPage}
+			<a href="http://thepigeonhole.com">
+					<img id="logo" src="{image:LogoDark}"></img>
+				</a>
+			{/block:PermalinkPage} 
+		</header>
 
-				{block:AskEnabled}<a href="/ask">ask</a> &nbsp;&nbsp;{/block:AskEnabled}
-				{block:SubmissionsEnabled}<a href="/submit">{SubmitLabel}</a> &nbsp;&nbsp;{/block:SubmissionsEnabled}
 
-				<br />
-				{block:Description}
-				{Description}
-				{/block:Description}
-			</p>
-			
+
+		<div class="container">
+			<div class="row">
+				<div id="content" class="col-xs-12 col-md-8 col-md-offset-2">
+					{block:IndexPage}
+						<p id="description">
+							<span class="welcome">Welcome to The Pigeon Feed.</span>
+							{block:Description}
+								{Description}
+							{/block:Description}
+						</p>
+						<div class="archives">
+							Archives
+						</div>
+					{/block:IndexPage}
+					<div class="post-list">
+						{block:Posts}
+							<article>
+								{block:IndexPage}
+									{block:Title}
+										<a href="{Permalink}" class="post-title">
+								  		<h2>{Title}</h2>
+								  	</a>
+							  	{/block:Title}
+								{/block:IndexPage}
+								{block:PermalinkPage}
+									{block:Date} 
+										<time class="post-date timeago" datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}" data-time="{DayOfMonthWithZero} {Month} {Year}">{DayOfMonthWithZero} {Month}</time>
+									{/block:Date}
+									<h1 class="post-title">{Title}</h1>
+								{/block:PermalinkPage}
+				<!-- Post start -->
+								{block:Quote}
+								  <div class="quote post">
+								  	<h2>"{Quote}"</h2>
+									  	{block:Source}
+										  	<p>{Source}</p>
+									  	{/block:Source}
+								  </div>
+							  {/block:Quote}
+
+							  {block:Photo}
+								  <div class="photo post">
+								  	{LinkOpenTag}
+									  	<img src="{PhotoURL-500}" alt="{PhotoAlt}"/>
+								  	{LinkCloseTag}
+								  	{block:Caption}
+									  	<p>{Caption}</p>
+								  	{/block:Caption}
+							  {/block:Photo}
+
+								{block:Video}
+								  <div class="video post">
+								  	{Video-500}
+								  	{block:Caption}
+									  	<p>{Caption}</p>
+								  	{/block:Caption}
+								  </div>
+							  {/block:Video}   
+
+							  {block:Link}
+								  <div class="link post">
+								  	<h2><a href="{URL}" {Target}>{Name}</a></h2>
+									  	{block:Description}
+										  	<p>{Description}</p>
+									  	{/block:Description}
+								  </div>
+							  {/block:Link}
+
+							  {block:Chat}
+								  <div class="conversation post">
+								  	{block:Title}
+									  	<h2>{Title}</h2>
+								  	{/block:Title}
+								  	<ul>
+								  		{block:Lines}
+									  		<li class="member{UserNumber}">
+									  			{block:Label}
+										  			<span class="label">{Label}</span>
+									  			{/block:Label}
+										 			{Line}
+										 		</li>
+								  		{/block:Lines}
+								  	</ul>
+								  </div>
+							  {/block:Chat}
+
+
+							  {block:Text}
+								  <div class="text post">
+								  	{Body}
+								  </div>
+							  {/block:Text}
+
+							  {block:Audio}
+								  <div class="post audio">
+								  	{AudioPlayerGrey}
+									  	<div class="audio_details">{block:Artist}<b>{Artist}</b>{/block:Artist} &ndash; {block:TrackName}{TrackName}{/block:TrackName} <span class="playcount">({PlayCountWithLabel})</span></div>
+									  	<div class="audio_caption">{block:Caption}{Caption}{/block:Caption}</div>
+									  	{block:ExternalAudio}
+										  	<p><a href="{ExternalAudioURL}">{lang:Download}</a></p>
+									  	{/block:ExternalAudio}			
+								  </div>
+							  {/block:Audio}
+							  {block:IndexPage}
+									{block:Date} 
+										<time class="post-date timeago" datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}" data-time="{DayOfMonthWithZero} {Month} {Year}">{DayOfMonthWithZero} {Month}</time>
+									{/block:Date}
+								{/block:IndexPage}
+				<!-- Post end -->
+							</article>
+				  	{/block:Posts}
+			  </div>
+			  {block:NextPage}
+			  	<a href="{NextPage}" class="next-page btn btn-lg">More</a>
+				{/block:NextPage}
+			</div>
 		</div>
-
-
-
-
-		<div id="content">
-
-
-			{block:Posts}
-				{block:Quote}
-
-				  <div class="permalink">
-				  	{block:IfNotDisqusShortname}<a href="{Permalink}">&rarr;</a>{/block:IfNotDisqusShortname}
-				  	{block:Date}{block:Date}{block:IfDisqusShortname}<a href="{Permalink}#disqus_thread"></a>{/block:IfDisqusShortname}{/block:Date}{/block:Date}
-				  </div>
-				  <div class="quote post">
-				  	<h2>"{Quote}"</h2>
-					  	{block:Source}
-						  	<p>{Source}</p>
-					  	{/block:Source}
-					  	<div class="postmeta">{block:Date}<a href="{Permalink}">{TimeAgo}</a>&nbsp; {/block:Date}<a href="{Permalink}" style="text-transform:lowercase;">{lang:Notes} ({NoteCount})</a></div>
-				  </div>
-
-				  {block:PostNotes}
-					  <div>{PostNotes}</div>
-				  {/block:PostNotes}
-
-			  {/block:Quote}
-
-
-			  {block:Photo}
-				  <div class="permalink">
-				  	{block:IfNotDisqusShortname}<a href="{Permalink}">&rarr;</a>{/block:IfNotDisqusShortname}
-				  	{block:Date}{block:IfDisqusShortname}<a href="{Permalink}#disqus_thread"></a>{/block:IfDisqusShortname}{/block:Date}
-				  </div>
-
-				  <div class="photo post">
-				  	{LinkOpenTag}
-					  	<img src="{PhotoURL-500}" alt="{PhotoAlt}"/>
-				  	{LinkCloseTag}
-				  	{block:Caption}
-					  	<p>{Caption}</p>
-				  	{/block:Caption}
-				  	<div class="postmeta">{block:Date}<a href="{Permalink}">{TimeAgo}</a>&nbsp; {/block:Date}<a href="{Permalink}" style="text-transform:lowercase;">{lang:Notes} ({NoteCount})</a></div>
-					  </div>
-					  {block:PostNotes}
-						  <div>{PostNotes}</div>
-					  {/block:PostNotes}
-			  {/block:Photo}
-
-
-				{block:Video}
-
-				  <div class="permalink">
-				  	{block:IfNotDisqusShortname}<a href="{Permalink}">&rarr;</a>{/block:IfNotDisqusShortname}
-				  	{block:Date}{block:IfDisqusShortname}<a href="{Permalink}#disqus_thread"></a>{/block:IfDisqusShortname}{/block:Date}
-				  </div>
-				  <div class="video post">
-				  	{Video-500}
-				  	{block:Caption}
-					  	<p>{Caption}</p>
-				  	{/block:Caption}
-				  	<div class="postmeta">{block:Date}<a href="{Permalink}">{TimeAgo}</a>&nbsp; {/block:Date}<a href="{Permalink}" style="text-transform:lowercase;">{lang:Notes} ({NoteCount})</a></div>
-				  </div>
-				  {block:PostNotes}
-					  <div>{PostNotes}</div>
-				  {/block:PostNotes}
-			  {/block:Video}   
-
-			  {block:Link}
-				  <div class="permalink">
-				  	{block:IfNotDisqusShortname}<a href="{Permalink}">&rarr;</a>{/block:IfNotDisqusShortname}
-				  	{block:Date}{block:IfDisqusShortname}<a href="{Permalink}#disqus_thread"></a>{/block:IfDisqusShortname}{/block:Date}
-				  </div>
-				  <div class="link post">
-				  	<h2><a href="{URL}" {Target}>{Name}</a></h2>
-					  	{block:Description}
-						  	<p>{Description}</p>
-					  	{/block:Description}
-					  	<div class="postmeta">{block:Date}<a href="{Permalink}">{TimeAgo}</a>&nbsp; {/block:Date}<a href="{Permalink}" style="text-transform:lowercase;">{lang:Notes} ({NoteCount})</a></div>
-				  </div>
-				  {block:PostNotes}
-					  <div>{PostNotes}</div>
-				  {/block:PostNotes}
-			  {/block:Link}
-
-
-			  {block:Chat}
-				  <div class="permalink">
-				  	{block:IfNotDisqusShortname}<a href="{Permalink}">&rarr;</a>{/block:IfNotDisqusShortname}
-				  	{block:Date}{block:IfDisqusShortname}<a href="{Permalink}#disqus_thread"></a>{/block:IfDisqusShortname}{/block:Date}
-				  </div>
-				  <div class="conversation post">
-				  	{block:Title}
-					  	<h2>{Title}</h2>
-				  	{/block:Title}
-				  	<ul>
-				  		{block:Lines}
-					  		<li class="member{UserNumber}">
-					  			{block:Label}
-						  			<span class="label">{Label}</span>
-					  			{/block:Label}
-						 			{Line}
-						 		</li>
-				  		{/block:Lines}
-				  	</ul>
-				  	<div class="postmeta">{block:Date}<a href="{Permalink}">{TimeAgo}</a>&nbsp; {/block:Date}<a href="{Permalink}" style="text-transform:lowercase;">{lang:Notes} ({NoteCount})</a></div>
-				  </div>
-				  {block:PostNotes}
-					  <div>{PostNotes}</div>
-				  {/block:PostNotes}
-			  {/block:Chat}
-
-
-			  {block:Text}
-				  <div class="permalink">
-				  	{block:IfNotDisqusShortname}<a href="{Permalink}">&rarr;</a>{/block:IfNotDisqusShortname}
-				  	{block:Date}{block:IfDisqusShortname}<a href="{Permalink}#disqus_thread"></a>{/block:IfDisqusShortname}{/block:Date}
-				  </div>
-				  <div class="text post">
-				  	{block:Title}
-					  	<h2>{Title}</h2>
-				  	{/block:Title}
-				  	{Body}
-					  	<div class="postmeta">{block:Date}<a href="{Permalink}">{TimeAgo}</a>&nbsp; {/block:Date}<a href="{Permalink}" style="text-transform:lowercase;">{lang:Notes} ({NoteCount})</a></div>
-				  </div>
-				  {block:PostNotes}
-					  <div>{PostNotes}</div>
-				  {/block:PostNotes}
-			  {/block:Text}
-
-			  {block:Audio}
-				  <div class="permalink">
-				  	{block:IfNotDisqusShortname}<a href="{Permalink}">&rarr;</a>{/block:IfNotDisqusShortname}
-				  	{block:Date}{block:IfDisqusShortname}<a href="{Permalink}#disqus_thread"></a>{/block:IfDisqusShortname}{/block:Date}
-				  </div>
-				  <div class="post audio">
-				  	{AudioPlayerGrey}
-					  	<div class="audio_details">{block:Artist}<b>{Artist}</b>{/block:Artist} &ndash; {block:TrackName}{TrackName}{/block:TrackName} <span class="playcount">({PlayCountWithLabel})</span></div>
-					  	<div class="audio_caption">{block:Caption}{Caption}{/block:Caption}</div>
-					  	{block:ExternalAudio}
-						  	<p><a href="{ExternalAudioURL}">{lang:Download}</a></p>
-					  	{/block:ExternalAudio}			
-					  	<div class="postmeta">{block:Date}<a href="{Permalink}">{TimeAgo}</a>&nbsp; {/block:Date}<a href="{Permalink}" style="text-transform:lowercase;">{lang:Notes} ({NoteCount})</a></div>
-				  </div>
-				  {block:IfDisqusShortname}
-					  {block:Permalink}
-						  <div id="disqus_thread"></div>
-						  <script type="text/javascript" src="http://disqus.com/forums/{text:Disqus Shortname}/embed.js"></script>
-						  <noscript><a href="http://{text:Disqus Shortname}.disqus.com/?url=ref">{lang:View the discussion thread}</a></noscript>
-					  {/block:Permalink}
-				  {/block:IfDisqusShortname}
-				  {block:PostNotes}
-					  <div>{PostNotes}</div>
-				  {/block:PostNotes}
-			  {/block:Audio}
-			  
-	  	{/block:Posts}
-
-	  {block:Pagination}
-		  <div id="navigation">
-		  	{block:NextPage}
-			  	<a href="{NextPage}" id="nav-next" style="text-transform:lowercase;">&larr; {lang:Older}</a>
-		  	{/block:NextPage}
-		  	<span class="page_number"> &nbsp; {CurrentPage}/{TotalPages} &nbsp;</span>
-		  	{block:PreviousPage}
-			  	<a href="{PreviousPage}" id="nav-prev" style="text-transform:lowercase;">{lang:Newer} &rarr;</a>
-		  	{/block:PreviousPage}
-		  </div>
-	  {/block:Pagination}
-
-	  {block:PermalinkPagination}
-		  <div id="navigation">
-		  	{block:PreviousPost}
-			  	<a href="{PreviousPost}" id="nav-prev" style="text-transform:lowercase;">&larr; {lang:Older}</a>
-		  	{/block:PreviousPost}
-		  	<span class="page_number"> &nbsp; {CurrentPage}/{TotalPages} &nbsp;</span>
-		  	{block:NextPost}
-			  	<a href="{NextPost}" id="nav-next" style="text-transform:lowercase;">{lang:Newer} &rarr;</a>
-		  	{/block:NextPost}
-		  </div>
-	  {/block:PermalinkPagination}
-
-	  <!-- Footer -->
-	  <div id="footer">
-	  	<form action="/search" method="get" id="searchform">
-	  		<p><input type="search" name="q" value="" results="5" /></p>
-	  	</form>
-	  	<div class="attribution"><a href="http://www.tumblr.com/theme/3357" title="tumblr theme feather">feather</a> by <a href="http://erichu.tumblr.com" title="eric hu">eric hu</a></div>
-	  </div>
 	</div>
+  <!-- Footer -->
+  <footer>
+  	<div class="container">
+  		<div class="inner-container">
+  			<ul id="footer_links">
+  				<li>
+  					<h5>The Pigeonhole</h5>
+  					<ul>
+  						<li>
+  							<a href="#">About</a>
+  						</li>
+  						<li>
+  							<a href="#">Blog</a>
+  						</li>
+  					</ul>
+  				</li>
+  				<li>
+  					<h5>Help</h5>
+  					<ul>
+  						<li>
+  							<a href="#">FAQ</a>
+  						</li>
+  						<li>
+  							<a href="#">Contact</a>
+  						</li>
+  					</ul>
+  				</li>
+  				<li>
+  					<h5>Legal</h5>
+  					<ul>
+  						<li>
+  							<a href="#">Privacy &amp; Cookie Policy</a>
+  						</li>
+  						<li>
+  							<a href="#">Terms &amp; Conditions of Use</a>
+  						</li>
+  					</ul>
+  				</li>
+  			</ul>
+  			<div id="footer_etc">
+  				<div class="social">
+  					<a class="twitter" href="https://twitter.com/ThePigeonholeHQ"><i class="fa fa-twitter"></i></a>
+  					<a class="facebook" href="https://www.facebook.com/PigeonholePublishing"><i class="fa fa-facebook"></i></a>
+  				</div>
+  				 &#169; Pigeonhole Publishing Limited
+  				<br>
+  				All rights reserved
+  			</div>
+  		</div>
+  	</div>
+
+  </footer>
+
 
 	{block:IfGoogleAnalyticsID}
 		<script type="text/javascript">var gaJsHost=(("https:"==document.location.protocol)?"https://ssl.":"http://www.");document.write(unescape("%3Cscript src='"+gaJsHost+"google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));</script><script type="text/javascript">try{var pageTracker=_gat._getTracker("{text:Google Analytics ID}");pageTracker._trackPageview()}catch(err){}</script>
 	{/block:IfGoogleAnalyticsID}
-
-	{block:IfDisqusShortname}
-		<script type="text/javascript">
-    //<![CDATA[
-       (function() {
-            	var links = document.getElementsByTagName('a');
-            	var query = '?';
-            	for(var i = 0; i < links.length; i++) {
-            		if(links[i].href.indexOf('#disqus_thread') >= 0) {
-            			query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&';
-            		}
-            	}
-            	document.write('<script charset="utf-8" type="text/javascript" src="http://disqus.com/forums/{text:Disqus Shortname}/get_num_replies.js' + query + '"></' + 'script>');
-            })();
-            //]]>
-          </script>
-  {/block:IfDisqusShortname}
-
-        </body>
-
-        </html>
+  </body>
+</html>
