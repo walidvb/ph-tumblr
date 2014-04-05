@@ -2,6 +2,9 @@ $theme-color: #99D3C8;
 $tablet: "(min-width: 767px)";
 
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic);
+a, a:hover, a:focus, a:visited{
+	color: $theme-color;
+}
 body{
 	font-family: Lato, sans-serif;
 	font-size: 16px;
