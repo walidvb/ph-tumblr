@@ -2,8 +2,14 @@ $theme-color: #99D3C8;
 $tablet: "(min-width: 767px)";
 
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic);
-a, a:hover, a:focus, a:visited{
+a, a:visited{
+	transition: all 0.2s;
+	-webkit-transition: all 0.2s;
 	color: $theme-color;
+}
+a:hover, a:focus{
+	text-decoration: none;
+	color: darken($theme-color, 10%);
 }
 body{
 	font-family: Lato, sans-serif;
@@ -89,9 +95,6 @@ article{
 		margin-top: 5px;
 		margin-bottom: 60px;
 	}
-	a h2, a:hover h2{
-		color: $theme-color;
-	}
 	p:not(.read_more_container) {
 		img {
 			display: block;
@@ -124,11 +127,17 @@ article{
 
 }
 
-.next-page{
+a.next-page{
 	background: $theme-color;
 	color: white;
 	width: 100%;
 	border-radius: 0;
+	transition: all 0.2s;
+	-webkit-transition: all 0.2s;
+	&:hover{
+		background: darken($theme-color, 10%);
+		color: white;
+	}
 }
 
 footer {
