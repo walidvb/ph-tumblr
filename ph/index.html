@@ -4,17 +4,24 @@
 
 	<head>
 		<!-- MYHEAD -->
+		<meta name="image:Favicon" content="{Favicon}"/>
+		<meta name="image:LogoDark" content="{LogoDark}"/>
+		<meta name="image:LogoLight" content="{LogoLight}"/>
+		<meta name="image:LogoPigeon" content="{LogoPigeon}"/>
+		<meta name="text:Google Analytics ID" content="" />
+
+		<meta name="viewport" content="width=device-width, user-scalable=no">
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 		{block:Description}
 			<meta name="description" content="{MetaDescription}" />
 		{/block:Description}
 		<title>{Title} {block:PostTitle} | {PostTitle} {/block:PostTitle}</title>
 
-		<link rel="shortcut icon" href="{Favicon}">
+		<link rel="shortcut icon" href="{Favicon}" type="image/x-icon">
+		<link rel="icon" href="{Favicon}" type="image/x-icon">
 		<link rel="alternate" type="application/rss+xml" href="{RSS}">
 
 		<meta name="viewport"  content="width=660"/>
-		<link rel="apple-touch-icon" href="{PortraitURL-128}"></link>
 
 		
 
@@ -53,7 +60,7 @@
 				var date = $this.attr('data-time');
 				var diff = days_since(date);
 				console.log('days_since', diff)
-				if(diff < 15)
+				if(diff < 6st)
 				{
 					$this.timeago();
 				}
@@ -67,14 +74,10 @@
 
 		})
 		</script>
-		<meta name="image:Header" content="{HeaderImage}"/>
-		<meta name="image:LogoDark" content="{LogoDark}"/>
-		<meta name="image:LogoLight" content="{LogoLight}"/>
-		<meta name="text:Google Analytics ID" content="" />
 		<style type="text/css">
-			@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic);a,a:visited{transition:all 0.2s;-webkit-transition:all 0.2s;color:#99d3c8}a:hover,a:focus{text-decoration:none;color:#75c4b5}body{font-family:Lato, sans-serif;font-size:16px}body p{font-weight:300}img,iframe{max-width:100% !important}header{position:relative;height:150px;margin-bottom:20px}.index-page header{background-size:cover;background-position:center;background-repeat:no-repeat;background-image:url({HeaderImage})}.permalink-page header{margin-bottom:60px}@media (min-width: 767px){.index-page header{height:400px;margin-bottom:60px}.permalink-page header{margin-bottom:135px}}header .title-wrapper{height:100%}header .title-wrapper:before{content:'';height:50%;display:inline-block}header .title-wrapper #blog-title{color:white;font-size:2em;letter-spacing:0.03em;margin-top:0;text-align:center}header #logo{padding:15px;width:200px;display:inline-block;position:absolute;top:0;left:0}@media (min-width: 767px){#description{margin-bottom:65px}}#description .welcome{font-weight:bold}.archives{font-weight:300;border-top:solid 1px #99d3c8;padding-top:5px;text-transform:uppercase}@media (min-width: 767px){.archives{margin-bottom:45px}}.post-list{margin-bottom:50px}article{margin-bottom:40px}.permalink-page article .post-title{color:#2C2C2C;margin-top:5px;margin-bottom:60px}article p:not(.read_more_container) img{display:block;margin:auto}article p:not(.read_more_container) a,article p:not(.read_more_container) a:hover{color:black;text-decoration:underline}article p:not(.read_more_container) a:hover,article p:not(.read_more_container) a:hover:hover{text-decoration:none}article .post-meta{text-transform:uppercase;font-weight:300;color:#333;font-size:0.82em}article .post-meta .tags{display:inline-block;float:right;text-transform:uppercase}article .post-meta .tags .tag{color:#333}a.next-page{background:#99d3c8;color:white;width:100%;border-radius:0;transition:all 0.2s;-webkit-transition:all 0.2s}a.next-page:hover{background:#75c4b5;color:white}footer{margin-top:30px;padding-top:20px;padding-bottom:40px;padding-left:20px;padding-right:20px;background-color:#08233e;color:white}footer ul{padding:0;list-style-type:none}footer #footer_links{float:left;margin-bottom:5px}footer #footer_links h5{font-size:1.1em;margin-bottom:12px}footer #footer_links li{display:inline-block;padding-left:10px;padding-right:40px}footer #footer_links li li{font-weight:normal;font-size:1em;display:block;padding:0;line-height:2em}footer #footer_links li li a{color:white;text-decoration:none}footer #footer_links li li a:hover{text-decoration:underline}footer .next-page{background-color:#99d3c8;text-transform:uppercase;color:white}footer #footer_etc{margin-left:10px;margin-right:10px;clear:left}@media only screen and (min-width: 640px){footer #footer_etc{float:right}}@media only screen and (max-width: 640px){footer #footer_etc{float:left}}footer #footer_etc .social{margin-top:5px;margin-left:0px;font-size:large}footer #footer_etc .social a{margin-right:10px;color:white}
-
-
+				.index-page header{
+					background-image: url({HeaderImage});
+				}
 		</style>
 		<style type="text/css">{CustomCSS}</style>
 		
@@ -84,7 +87,7 @@
 	<body class="{block:IndexPage}index-page{/block:IndexPage} {block:PermalinkPage}permalink-page post-page{/block:PermalinkPage}">
 		<header style="">
 			{block:IndexPage} 
-				<a id="logo" href="http://thepigeonhole.com">
+				<a id="logo" href="http://thepigeonhole.com" target="_blank">
 					<img  src="{image:LogoLight}"></img>
 				</a>
 				<div class="title-wrapper">
@@ -120,8 +123,8 @@
 							<article>
 								{block:IndexPage}
 									{block:Title}
-										<a href="{Permalink}" class="post-title">
-								  		<h2>{Title}</h2>
+										<a href="{Permalink}" >
+								  		<h2 class="post-title">{Title}</h2>
 								  	</a>
 							  	{/block:Title}
 								{/block:IndexPage}
@@ -215,6 +218,8 @@
 									  	{/block:ExternalAudio}			
 								  </div>
 							  {/block:Audio}
+
+
 							  {block:IndexPage}
 									<div class="post-meta">
 										{block:Date}	
@@ -233,6 +238,22 @@
 								{/block:IndexPage}
 				<!-- Post end -->
 							</article>
+						
+							{block:Permalink}
+								<div class="article-footer">
+									<a href="{BlogURL}" class="back">
+										Back to Home
+									</a>
+									{block:PermalinkPagination}
+										{block:PreviousPost} 
+											<a href="{PreviousPost}" class="next">
+												Read Next Post
+											</a>
+										{/block:PreviousPost}
+									{/block:PermalinkPagination}
+								</div>
+							
+							{/block:Permalink}
 				  	{/block:Posts}
 			  </div>
 			  {block:NextPage}
@@ -243,55 +264,19 @@
 	</div>
   <!-- Footer -->
   <footer>
-  	<div class="container">
-  		<div class="inner-container">
-  			<ul id="footer_links">
-  				<li>
-  					<h5>The Pigeonhole</h5>
-  					<ul>
-  						<li>
-  							<a href="#">About</a>
-  						</li>
-  						<li>
-  							<a href="#">Blog</a>
-  						</li>
-  					</ul>
-  				</li>
-  				<li>
-  					<h5>Help</h5>
-  					<ul>
-  						<li>
-  							<a href="#">FAQ</a>
-  						</li>
-  						<li>
-  							<a href="#">Contact</a>
-  						</li>
-  					</ul>
-  				</li>
-  				<li>
-  					<h5>Legal</h5>
-  					<ul>
-  						<li>
-  							<a href="#">Privacy &amp; Cookie Policy</a>
-  						</li>
-  						<li>
-  							<a href="#">Terms &amp; Conditions of Use</a>
-  						</li>
-  					</ul>
-  				</li>
-  			</ul>
-  			<div id="footer_etc">
-  				<div class="social">
-  					<a class="twitter" href="https://twitter.com/ThePigeonholeHQ"><i class="fa fa-twitter"></i></a>
-  					<a class="facebook" href="https://www.facebook.com/PigeonholePublishing"><i class="fa fa-facebook"></i></a>
-  				</div>
-  				 &#169; Pigeonhole Publishing Limited
-  				<br>
-  				All rights reserved
-  			</div>
+  	<div class="copyright">
+  		<a href="http://thepigeonhole.com" target="_blank">
+  			<img class="logo"src="{image:LogoPigeon}"></img>
+  		</a>
+  		<div class="terms">
+  			Copyright &copy; Pigeonhole Limited <br />
+  			All rights reserved
   		</div>
   	</div>
-
+  	<div class="social">
+  		<a class="twitter" href="https://twitter.com/ThePigeonholeHQ"><i class="fa fa-twitter"></i></a>
+  		<a class="facebook" href="https://www.facebook.com/PigeonholePublishing"><i class="fa fa-facebook"></i></a>
+  	</div>
   </footer>
 
 
