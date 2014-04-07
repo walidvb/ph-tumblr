@@ -3,9 +3,6 @@ $text-color: #363636;
 $meta-color: #707070; 
 $tablet: "(min-width: 767px)";
 
-.read_more_container{
-	display: none;
-}
 h1, h2, h3, h4{
 	font-size: inherit;
 }
@@ -27,7 +24,7 @@ body{
 	font-size: 20px;
 	color: $text-color;
 	letter-spacing: 0.03em;
-	p{
+	p:not(:first-child){
 		font-weight: 300;
 		margin: 40px 0 10px;
 	}
@@ -117,12 +114,15 @@ article{
 	.index-page & .post-title{
 		font-size: 1.3em;
 		color: $theme-color;
-		margin-bottom: 20px;
+		margin-bottom: 5px;
 		transition: all 0.2s;
 		-webkit-transition: all 0.2s;
 		&:hover{
 			color: darken($theme-color, 15%);
 		}
+	}
+	.post{
+		margin-top: 20px;
 	}
 	p{
 		img {
@@ -131,7 +131,7 @@ article{
 		}
 
 		a, a:hover{
-			color: black!important;
+			color: black;
 			text-decoration: underline;
 			&:hover {
 				text-decoration: none;
@@ -141,13 +141,25 @@ article{
 			color: lighten(black, 10%);
 		}
 	}
-	.post-meta{
+
+	p.read_more_container{
+		margin-top: 0;	
+	}
+
+	.post-meta, .read_more_container{
 		text-transform: uppercase;
 		font-weight: 300;
-		color: $meta-color;
+		color: $meta-color!important;
 		font-size: 0.7em;
 		display: inline-block;
 		width: 100%;
+		a{
+			text-decoration: none;
+			&:hover{
+				text-decoration: none;
+				color: darken($meta-color, 15%)!important;
+			}
+		}
 		time{
 			float: left;
 		}
@@ -155,16 +167,10 @@ article{
 			display: inline-block;
 			float: right;
 			text-transform: uppercase;
-			.tag{
-				color: $meta-color;
-				&:hover{
-					color: darken($meta-color, 15%);
-				}
-			}
 		}
 	}
-	
 }
+
 .article-footer{
 	text-transform: uppercase;
 	font-weight: 700;
@@ -177,6 +183,7 @@ article{
 		float: right;
 	}
 }
+
 a.next-page{
 	position: relative;
 	font-family: Montserrat;

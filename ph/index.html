@@ -129,22 +129,22 @@
 							  	{/block:Title}
 								{/block:IndexPage}
 								{block:PermalinkPage}
-									<div class="post-meta">
-										{block:Date}	
-										<time class="post-date timeago" datetime="{Year}-{MonthNumber}-{DayOfMonthWithZero}T{24HourWithZero}:{Minutes}:{Seconds}Z" data-time="{DayOfMonthWithZero} {Month} {Year}">{DayOfMonth} {Month}</time>
-										{/block:Date}
-										{block:HasTags} 
-											<div class="tags">
-												{block:Tags} 
-													<a href="{TagURL}" class="tag tag-{Tag}">
-														#{Tag}
-													</a>
-												{/block:Tags}
-											</div>
-										{/block:HasTags}
-									</div>
-									<h1 class="post-title">{Title}</h1>
+									<h1 class="post-title">{Title}</h1>					
 								{/block:PermalinkPage}
+								<div class="post-meta">
+									{block:Date}	
+									<time class="post-date timeago" datetime="{Year}-{MonthNumber}-{DayOfMonthWithZero}T{24HourWithZero}:{Minutes}:{Seconds}Z" data-time="{DayOfMonthWithZero} {Month} {Year}">{DayOfMonth} {Month}</time>
+									{/block:Date}
+									{block:HasTags} 
+										<div class="tags">
+											{block:Tags} 
+												<a href="{TagURL}" class="tag tag-{Tag}">
+													#{Tag}
+												</a>
+											{/block:Tags}
+										</div>
+									{/block:HasTags}
+								</div>
 				<!-- Post start -->
 								{block:Quote}
 								  <div class="quote post">
@@ -218,25 +218,6 @@
 									  	{/block:ExternalAudio}			
 								  </div>
 							  {/block:Audio}
-
-
-							  {block:IndexPage}
-									<div class="post-meta">
-										{block:Date}	
-										<time class="post-date timeago" datetime="{Year}-{MonthNumber}-{DayOfMonthWithZero}T{24HourWithZero}:{Minutes}:{Seconds}Z" data-time="{DayOfMonthWithZero} {Month} {Year}">{DayOfMonth} {Month}</time>
-										{/block:Date}
-										{block:HasTags} 
-											<div class="tags">
-												{block:Tags} 
-													<a href="{TagURL}" class="tag">
-														#{Tag}
-													</a>
-												{/block:Tags}
-											</div>
-										{/block:HasTags}
-									</div>
-								{/block:IndexPage}
-				<!-- Post end -->
 							</article>
 						
 							{block:Permalink}
