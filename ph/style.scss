@@ -82,9 +82,7 @@ header{
 }
 #description{
 	font-size: 0.9em;
-	@media #{$tablet} {
-		margin-bottom: 65px;
-	}
+	margin-bottom: 65px;
 	.welcome{
 		font-weight: bold;
 	}
@@ -131,12 +129,16 @@ article{
 			display: block;
 			margin: auto;
 		}
+
 		a, a:hover{
-			color: black;
+			color: black!important;
 			text-decoration: underline;
 			&:hover {
 				text-decoration: none;
 			}
+		}
+		a:visited{
+			color: lighten(black, 10%);
 		}
 	}
 	.post-meta{
@@ -164,17 +166,17 @@ article{
 	
 }
 .article-footer{
-		text-transform: uppercase;
-		font-weight: 700;
-		font-family: Montserrat, sans-serif;
-		font-size: 0.9em;
-		.back{
-			float: left;
-		}
-		.next{
-			float: right;
-		}
+	text-transform: uppercase;
+	font-weight: 700;
+	font-family: Montserrat, sans-serif;
+	font-size: 0.9em;
+	.back{
+		float: left;
 	}
+	.next{
+		float: right;
+	}
+}
 a.next-page{
 	position: relative;
 	font-family: Montserrat;
@@ -191,7 +193,7 @@ a.next-page{
 		background: darken($theme-color, 10%);
 		color: white;
 	}
-    
+	
 	// &:before{
 	//     font-family: FontAwesome;
 	//     font-size: 0.8em;
@@ -228,10 +230,9 @@ footer {
 			float: left;
 		}
 		.logo{
-			img{
-				height: 23px;
-				width: auto;
-			}
+			height: 23px;
+			width: auto;
+			margin: 5px 0px;
 		}
 		.terms{
 			margin-left: 25px;

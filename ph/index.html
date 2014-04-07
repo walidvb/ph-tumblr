@@ -60,7 +60,7 @@
 				var date = $this.attr('data-time');
 				var diff = days_since(date);
 				console.log('days_since', diff)
-				if(diff < 6st)
+				if(diff < 6)
 				{
 					$this.timeago();
 				}
@@ -131,7 +131,7 @@
 								{block:PermalinkPage}
 									<div class="post-meta">
 										{block:Date}	
-										<time class="post-date timeago" datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}" data-time="{DayOfMonthWithZero} {Month} {Year}">{DayOfMonthWithZero} {Month}</time>
+										<time class="post-date timeago" datetime="{Year}-{MonthNumber}-{DayOfMonthWithZero}T{24HourWithZero}:{Minutes}:{Seconds}Z" data-time="{DayOfMonthWithZero} {Month} {Year}">{DayOfMonth} {Month}</time>
 										{/block:Date}
 										{block:HasTags} 
 											<div class="tags">
@@ -223,7 +223,7 @@
 							  {block:IndexPage}
 									<div class="post-meta">
 										{block:Date}	
-										<time class="post-date timeago" datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}" data-time="{DayOfMonthWithZero} {Month} {Year}">{DayOfMonthWithZero} {Month}</time>
+										<time class="post-date timeago" datetime="{Year}-{MonthNumber}-{DayOfMonthWithZero}T{24HourWithZero}:{Minutes}:{Seconds}Z" data-time="{DayOfMonthWithZero} {Month} {Year}">{DayOfMonth} {Month}</time>
 										{/block:Date}
 										{block:HasTags} 
 											<div class="tags">
@@ -266,7 +266,7 @@
   <footer>
   	<div class="copyright">
   		<a href="http://thepigeonhole.com" target="_blank">
-  			<img class="logo"src="{image:LogoPigeon}"></img>
+  			<img class="logo" src="{image:LogoPigeon}"></img>
   		</a>
   		<div class="terms">
   			Copyright &copy; Pigeonhole Limited <br />
