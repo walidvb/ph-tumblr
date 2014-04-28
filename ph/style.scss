@@ -1,6 +1,6 @@
 $theme-color: #7ad5c9;
 $text-color: #363636;
-$meta-color: #707070; 
+$meta-color: #959595; 
 $tablet: "(min-width: 767px)";
 
 h1, h2, h3, h4{
@@ -107,7 +107,7 @@ article{
 	.permalink-page & .post-title{
 		color: $text-color;
 		font-size: 1.8em;
-		margin-bottom: 60px;
+		margin-bottom: 5px;
 		margin-top: -5px;
 
 	}
@@ -155,6 +155,7 @@ article{
 		width: 100%;
 		a{
 			text-decoration: none;
+			color: $meta-color!important;
 			&:hover{
 				text-decoration: none;
 				color: darken($meta-color, 15%)!important;
