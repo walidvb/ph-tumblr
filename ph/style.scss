@@ -123,6 +123,12 @@ article{
 	}
 	.post{
 		margin-top: 20px;
+		&.video{
+			text-align: center;
+			> div{
+				display: inline-block;
+			}
+		}
 	}
 	p{
 		img {
@@ -201,25 +207,6 @@ a.next-page{
 		background: darken($theme-color, 10%);
 		color: white;
 	}
-	
-	// &:before{
-	//     font-family: FontAwesome;
-	//     font-size: 0.8em;
-	//     content: "\f054";
-	//     position: absolute;
-	//     line-height: 165%;
-	//     color: inherit;
-	//     -webkit-transition: all 0.3s;
-	//     -moz-transition: all 0.3s;
-	//     transition: all 0.3s;
-	//     left: 56%;
-	//     opacity: 0;
-	// }
-	// &:hover:before{
-	//     left: 57%;
-	//     opacity: 1;
-	// }
-
 }
 
 
